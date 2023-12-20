@@ -12,22 +12,6 @@ model = load_model('brain_tumor_detection.h5')
 
 # Define the classes
 classes = ['no', 'yes']
-import base64
-def add_bg_from_local(image_file):
-    with open("a2.jpg", "rb") as image_file:
-        encoded_string = base64.b64encode(image_file.read())
-    st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
-        background-size: cover
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-    )
-add_bg_from_local('blue_bg.png')
 
 def generate_medical_report(class_prediction, confidence):
     report = f"Medical Report\n\n"
